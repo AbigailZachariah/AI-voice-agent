@@ -1,7 +1,8 @@
 "use client"
 import { UserDetailContext } from '@/context/UserDetailContext';
 import { supabase } from '@/services/supabaseClient'
-import React,{useState} from 'react'
+import { User } from 'lucide-react';
+import React,{useContext, useEffect, useState} from 'react'
 
 function Provider({children}) {
 
@@ -10,9 +11,9 @@ function Provider({children}) {
         CreateNewUser();
     },[])
 
-    const CreateNewUser=()=>{
+    const CreateNewUser=() => {
 
-        supabase.auth.getUser().then(({data:{user}})=>{
+        supabase.auth.getUser().then(async({data:{user}})=>{
             //Check if user already exist
             let { data: Users, error } = await supabase
             .from('Users')
