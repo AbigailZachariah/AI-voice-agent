@@ -1,4 +1,4 @@
-import { Calendar, Clock } from 'lucide-react'
+import { Calendar, Clock, MessageCircleQuestionIcon } from 'lucide-react'
 import moment from 'moment'
 import React from 'react'
 
@@ -28,9 +28,9 @@ function InterviewDetailContainer({interviewDetail}) {
 
       <div className='mt-5'>
         <h2 className='font-bold'>Interview Questions </h2>
-        <div>
+        <div className='grid grid-cols-2 gap-3 mt-3'>
           {interviewDetail?.questionList.map((item,index)=>{
-            <h2>{index}.{item?.question}</h2>
+            <h2 className='text-xs flex'> {index+1}.{item?.question}</h2>
           })}
         </div>
       </div>
